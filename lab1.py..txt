@@ -1,0 +1,62 @@
+"""
+Laboratory work No. 1.
+Calculation of mathematical functions.
+Variant 31.
+"""
+import math
+
+
+def _is_valid_x(x: float) -> bool:
+    """Check if x belongs to the domain of definition for Variant 31."""
+    if x >= -11.0 and x != 5.0 and x != 14.0:
+        return True
+    return False
+
+
+def f(x: float) -> float:
+    """Calculate the value of the expression for Variant 31."""
+    term1 = math.sin(13 / 57)
+    term2 = ((8 * math.e) / (53 * math.pi)) * (6 / ((x - 14) * (x + 13)))
+    term3 = 10 * math.cos(x - 3)
+    term4 = (8 - math.sqrt(x + 11)) / (x - 5)
+
+    return term1 + term2 + term3 + term4
+
+
+def _process_calculation() -> None:
+    """Handle user input, validation, calculation, and output."""
+    raw_input = input("Enter x (x >= -11 and x != 5 and x != 14): ")
+
+    try:
+        x = float(raw_input)
+    except ValueError:
+        print("\nwrong input")
+        return
+
+    print("\n***** do calculations")
+
+    is_valid = _is_valid_x(x)
+    if is_valid:
+        res = f(x)
+
+    print("done")
+    print(f"for x={x:.7f}")
+
+    if is_valid:
+        print(f"result ={res:.9f}")
+    else:
+        print("result = undefined")
+
+
+def _main() -> None:
+    """Main entry point of the program."""
+    print("The author of this program is Povstyana Anastasiia")
+    print(
+        "Variant 31: this program calculates the value "
+        "of the expression for a given x."
+    )
+    _process_calculation()
+
+
+if __name__ == "__main__":
+    _main()
